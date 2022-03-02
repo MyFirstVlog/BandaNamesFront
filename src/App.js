@@ -30,11 +30,6 @@ function App() {
     console.log('cambiar-nombre', id);
     socket.emit('cambiar-nombre', {id,nombre});
   }
-
-  const agregarBanda = (nombre) => {
-    console.log('agregar-banda', nombre);
-    socket.emit('agregar-banda', nombre);
-  }
   
 
   return (
@@ -63,9 +58,7 @@ function App() {
             />
         </div>
         <div className='col-4'>
-            <BandAdd
-              agregar={agregarBanda}
-            />
+            <BandAdd />
         </div>
       </div>
     </div>

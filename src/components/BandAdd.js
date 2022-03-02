@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useSocket } from '../hooks/useSocket'
 
-export const BandAdd = ({agregar}) => {
+export const BandAdd = () => {
 
   const [value, setValue] = useState("")
+
+  const {socket} = useSocket('http://localhost:8080')
 
   const onChange = (e) => {
     const value = e.target.value;
@@ -12,7 +15,7 @@ export const BandAdd = ({agregar}) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    agregar(value);
+    socket.emit('agregar-banda', value);
   }
 
   return (
